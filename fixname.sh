@@ -1,5 +1,8 @@
 #This script is a hotfix for the ADCIRC bug that malforms the names of the 'neta' and 'nvel' variables
-name="harvey"
+#Requirements: NetCDF operators, can be loaded using module load nco 
+#Usage: fixname.sh <stormname> 
+
+name=$1
 
 ncrename -v neta,neta_rm -v nvel,nvel_rm ${name}_compound.63.nc ${name}_compound.63.nc --overwrite
 ncrename -v neta,neta_rm -v nvel,nvel_rm ${name}_surge.63.nc ${name}_surge.63.nc --overwrite
